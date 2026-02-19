@@ -1,13 +1,21 @@
-using System;
-
 namespace MyApi.Services;
 
 public class ItemService : IItemService
 {
-    public List<string> GetAll()
+    private readonly List<string> _items;
+
+    public ItemService()
     {
-        return new List<string> { "Laptop", "Mouse" };
+        _items = new List<string> { "Laptop", "Mouse" };
     }
 
-    public void Add(string item) { }
+    public List<string> GetAll()
+    {
+        return _items;
+    }
+
+    public void Add(string item)
+    {
+        _items.Add(item);
+    }
 }

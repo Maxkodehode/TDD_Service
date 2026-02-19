@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "lNp3hb0dXso=",
+  "dgSpecHash": "YOMmW2IYwrc=",
   "success": true,
-  "projectFilePath": "/home/onizuka/Desktop/Mine koder/C#/TDD_Service/MyApi/MyApi.csproj",
+  "projectFilePath": "/home/eikichi/RiderProjects/TDD_Service/MyApi/MyApi.csproj",
   "expectedPackageFiles": [
-    "/home/onizuka/.nuget/packages/microsoft.aspnetcore.openapi/10.0.0-rc.2.25502.107/microsoft.aspnetcore.openapi.10.0.0-rc.2.25502.107.nupkg.sha512",
-    "/home/onizuka/.nuget/packages/microsoft.openapi/2.0.0/microsoft.openapi.2.0.0.nupkg.sha512"
+    "/home/eikichi/.nuget/packages/microsoft.aspnetcore.openapi/10.0.0-rc.2.25502.107/microsoft.aspnetcore.openapi.10.0.0-rc.2.25502.107.nupkg.sha512",
+    "/home/eikichi/.nuget/packages/microsoft.openapi/2.0.0/microsoft.openapi.2.0.0.nupkg.sha512"
   ],
   "logs": []
 }

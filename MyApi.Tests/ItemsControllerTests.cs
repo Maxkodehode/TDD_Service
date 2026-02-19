@@ -23,5 +23,6 @@ public class ItemsControllerTests
 
         // Assert
         Assert.IsType<CreatedAtActionResult>(result);
+        mockService.Verify(s => s.Add("Keyboard"), Times.Once);
     }
 }

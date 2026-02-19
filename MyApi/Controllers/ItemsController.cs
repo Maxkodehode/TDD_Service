@@ -1,9 +1,8 @@
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyApi.Services;
 
-namespace MyApi.Controllers
-{
+namespace MyApi.Controllers;
+
     [ApiController]
     [Route("api/[controller]")]
     public class ItemsController : ControllerBase
@@ -30,4 +29,4 @@ namespace MyApi.Controllers
             return CreatedAtAction(nameof(Get), new { id = newItem }, newItem);
         }
     }
-}
+
