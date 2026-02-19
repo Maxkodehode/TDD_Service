@@ -1,16 +1,15 @@
-using System;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using MyApi.Controllers;
 using MyApi.Services;
-using Xunit;
+
 
 namespace MyApi.Tests;
 
 public class ItemsControllerTests
 {
     [Fact]
-    public void Get_ReturnOkResult_WithListOfItems()
+    public void Post_ReturnsCreatedAtAction_WhenItemIsValid()
     {
         // Arrange
 

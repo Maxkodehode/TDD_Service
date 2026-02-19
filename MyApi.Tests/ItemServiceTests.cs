@@ -1,6 +1,4 @@
 ﻿using MyApi.Services;
-using MyApi.Controllers;
-
 namespace MyApi.Tests;
 
 public class ItemServiceTests
@@ -28,5 +26,39 @@ public class ItemServiceTests
         // Assert
         Assert.Equal(3, items.Count); 
         Assert.Contains("Keyboard", items);
+    }
+
+    [Fact]
+    public void TestIfItemIsDeleted()
+    {
+        // Arrange
+        var service = new ItemService();
+        
+        // Act
+        
+        var items = service.GetAll();
+        service.Delete("Mouse");
+        
+        
+        // Assert
+        Assert.DoesNotContain("Mouse", items);
+        Assert.Equal(2, items.Count);
+    }
+
+    [Fact]
+    public void TestIfItemIsUpdated()
+    {
+        // Arrange
+        var service = new ItemService();
+
+    
+        // Act
+        service.Update("Laptop", "Monitor");
+        var items = service.GetAll();
+    
+        // Assert
+        Assert.Contains("Laptop", service.GetAll());
+        Assert.Contains("Monitor", items[0]);
+        Assert.DoesNotContain("Laptop", items);
     }
 }
