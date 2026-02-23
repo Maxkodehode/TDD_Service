@@ -1,36 +1,60 @@
+using System.Diagnostics.CodeAnalysis;
+using Microsoft.EntityFrameworkCore;
+using MyApi.Data;
+
 namespace MyApi.Services;
 
 public class ItemService : IItemService
 {
-    private readonly List<string> _items;
+    private readonly ApiDbContext _context;
 
-    public ItemService()
+    public ItemService(ApiDbContext context)
     {
-        _items = new List<string> { "Laptop", "Mouse" };
+        _context = context;
     }
 
     public List<string> GetAll()
     {
-        return _items;
+        return _context.Items.Select(i => i.Name).ToList();
     }
 
     public void Add(string item)
     {
-        _items.Add(item);
+        if (String.IsNullOrEmpty(item))
+        {
+            throw new ArgumentException("Item cannot be null or empty.");
+        }
+        _context.Items.Add(new ItemEntity { Name = item });
+        _context.SaveChanges();
     }
 
-    public void Delete(string item)
+    public void Delete(int id)
     {
-        if (!_items.Contains(item)) throw new KeyNotFoundException();
-        _items.Remove(item);
+        var item = _context.Items.Find(id);
+
+        if (item != null)
+        {
+            // 2. Remove it from the table
+            _context.Items.Remove(item);
+
+            // 3. Save the deletion
+            _context.SaveChanges();
+        }
+        else
+        {
+            throw new KeyNotFoundException($"Item with ID {id} not found.");
+        }
     }
 
-    public void Update(string oldItem, string newItem)
+    public void Update(int id, string newItem)
     {
-        int index = _items.IndexOf(oldItem);
-        if (index != -1)
-            throw new KeyNotFoundException();
+        var item = _context.Items.Find(id);
 
-        _items[index] = newItem;
+        if (item == null)
+        {
+            throw new KeyNotFoundException($"Item with ID {id} not found.");
+        }
+        item.Name = newItem;
+        _context.SaveChanges();
     }
 }

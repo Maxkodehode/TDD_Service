@@ -1,75 +1,95 @@
-﻿using MyApi.Services;
+﻿using MyApi.Data;
+using MyApi.Services;
+
 namespace MyApi.Tests;
 
-public class ItemServiceTests
+public class ItemServiceTests : TestBase
 {
     [Fact]
     public void TestIfGetAllReturnsItems()
     {
-        var service = new ItemService();
-        var items = service.GetAll();
-
-        Assert.NotNull(items);
+        // Arrange
+        var context = GetDbContext();
+        var service = new ItemService(context);
+        
+        // Act
+        service.Add("New Item");
+        
+        // Assert
+        Assert.Contains("New Item", service.GetAll());
     }
 
     [Fact]
     public void TestIfPostAddsItem()
     {
         // Arrange
-        var service = new ItemService();
+        var context = GetDbContext();
+        var service = new ItemService(context);
+        
         var newItem = "Keyboard";
 
         // Act
         service.Add(newItem);
-        var items = service.GetAll();
+        
 
         // Assert
-        Assert.Equal(3, items.Count);
-        Assert.Contains("Keyboard", items);
+        Assert.Single(service.GetAll());
+        Assert.Contains("Keyboard", service.GetAll());
     }
 
     [Fact]
     public void TestIfItemIsDeleted()
     {
         // Arrange
-        var service = new ItemService();
-
+        var context = GetDbContext();
+        var service = new ItemService(context);
+        
+        service.Add("Mouse");
+        var itemInDb = context.Items.First(i => i.Name == "Mouse");
+        int mouseId = itemInDb.Id;
+        
         // Act
-        var items = service.GetAll();
-        service.Delete("Mouse");
-
+        service.Delete(mouseId);
 
         // Assert
-        Assert.DoesNotContain("Mouse", items);
-        Assert.Single(items);
+        var allItems = service.GetAll();
+        Assert.DoesNotContain("Mouse", allItems);
+
     }
 
     [Fact]
     public void TestIfItemIsUpdated()
     {
         // Arrange
-        var service = new ItemService();
-
+        var context = GetDbContext();
+        var service = new ItemService(context);
+        
+        service.Add("Laptop");
+        var itemInDb = context.Items.First(i => i.Name == "Laptop");
+        int laptopId = itemInDb.Id;
 
         // Act
-        service.Update("Laptop", "Monitor");
-        var items = service.GetAll();
+        service.Update(laptopId, "Monitor");
+        
 
         // Assert
-        Assert.NotEmpty(items);
-        Assert.Contains("Monitor", service.GetAll());
-        Assert.Contains("Monitor", items[0]);
-        Assert.DoesNotContain("Laptop", items);
-
+        var allItems = service.GetAll();
+        Assert.Contains("Monitor", allItems);
+        Assert.DoesNotContain("Laptop", allItems);
     }
 
     [Fact]
-    public void TestIfUpdateThrowNotKeyExceptionWhenItemIsMissing()
+    public void Update_ShouldThrowException_WhenItemNotFound()
     {
         // Arrange
-        var service = new ItemService();
+        var context = GetDbContext();
+        var service = new ItemService(context);
+        
+        // Act
+        
+        
+        
         // Act & Assert
-        Assert.Throws<KeyNotFoundException>(() => service.Update("Mouse", "Monitor"));
+        Assert.Throws<KeyNotFoundException>(() => service.Update(1, "Monitor"));
     }
-
 }

@@ -1,11 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "YOMmW2IYwrc=",
+  "dgSpecHash": "B2Fv04cGV00=",
   "success": true,
   "projectFilePath": "/home/eikichi/RiderProjects/TDD_Service/MyApi/MyApi.csproj",
   "expectedPackageFiles": [
     "/home/eikichi/.nuget/packages/microsoft.aspnetcore.openapi/10.0.0-rc.2.25502.107/microsoft.aspnetcore.openapi.10.0.0-rc.2.25502.107.nupkg.sha512",
-    "/home/eikichi/.nuget/packages/microsoft.openapi/2.0.0/microsoft.openapi.2.0.0.nupkg.sha512"
+    "/home/eikichi/.nuget/packages/microsoft.entityframeworkcore/10.0.3/microsoft.entityframeworkcore.10.0.3.nupkg.sha512",
+    "/home/eikichi/.nuget/packages/microsoft.entityframeworkcore.abstractions/10.0.3/microsoft.entityframeworkcore.abstractions.10.0.3.nupkg.sha512",
+    "/home/eikichi/.nuget/packages/microsoft.entityframeworkcore.analyzers/10.0.3/microsoft.entityframeworkcore.analyzers.10.0.3.nupkg.sha512",
+    "/home/eikichi/.nuget/packages/microsoft.entityframeworkcore.inmemory/10.0.3/microsoft.entityframeworkcore.inmemory.10.0.3.nupkg.sha512",
+    "/home/eikichi/.nuget/packages/microsoft.entityframeworkcore.relational/10.0.0/microsoft.entityframeworkcore.relational.10.0.0.nupkg.sha512",
+    "/home/eikichi/.nuget/packages/microsoft.openapi/2.0.0/microsoft.openapi.2.0.0.nupkg.sha512",
+    "/home/eikichi/.nuget/packages/npgsql/10.0.0/npgsql.10.0.0.nupkg.sha512",
+    "/home/eikichi/.nuget/packages/npgsql.entityframeworkcore.postgresql/10.0.0/npgsql.entityframeworkcore.postgresql.10.0.0.nupkg.sha512"
   ],
   "logs": []
 }

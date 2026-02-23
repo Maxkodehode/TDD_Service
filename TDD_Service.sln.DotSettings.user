@@ -6,5 +6,7 @@
     &lt;TestId&gt;xUnit::998374E9-4685-45E0-87E4-34A6C3CB4BAD::net10.0::MyApi.Tests.ItemsControllerTests&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::998374E9-4685-45E0-87E4-34A6C3CB4BAD::net10.0::MyApi.Tests.ItemServiceTests.TestIfItemIsDeleted&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::998374E9-4685-45E0-87E4-34A6C3CB4BAD::net10.0::MyApi.Tests.ItemServiceTests.TestIfUpdateThrowNotKeyExceptionWhenItemIsMissing&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::998374E9-4685-45E0-87E4-34A6C3CB4BAD::net10.0::MyApi.Tests.ItemServiceTests.Update_ShouldThrowException_WhenItemNotFound&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::998374E9-4685-45E0-87E4-34A6C3CB4BAD::net10.0::MyApi.Tests.ItemServiceTests&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

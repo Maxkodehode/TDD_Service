@@ -6,7 +6,7 @@ public interface IItemService
     
     void Add(string item);
     
-    void Delete(string item);
+    void Delete(int id);
     
-    void Update(string oldItem, string newItem);
+    void Update(int id, string newItem);
 }

@@ -37,7 +37,7 @@ public class ItemsController : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    public IActionResult Delete(string id)
+    public IActionResult Delete(int id)
     {
         try
         {
@@ -51,16 +51,17 @@ public class ItemsController : ControllerBase
     }
 
     [HttpPatch("{id}")]
-    public IActionResult Patch(string oldItem, string newItem)
+    public IActionResult Patch(int id,[FromBody] string newItem)
     {
         try
         {
-            _itemService.Update(oldItem, newItem);
+            _itemService.Update(id, newItem);
             return NoContent();
         }
         catch (KeyNotFoundException)
         {
             return NotFound();
+            
         }
     }
 }
