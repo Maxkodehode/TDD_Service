@@ -18,20 +18,19 @@ public class ItemService : IItemService
     {
         _items.Add(item);
     }
-    
+
     public void Delete(string item)
     {
+        if (!_items.Contains(item)) throw new KeyNotFoundException();
         _items.Remove(item);
     }
-    
-    
+
     public void Update(string oldItem, string newItem)
     {
-        
         int index = _items.IndexOf(oldItem);
         if (index != -1)
-        {
-            _items[index] = newItem;
-        }
+            throw new KeyNotFoundException();
+
+        _items[index] = newItem;
     }
 }

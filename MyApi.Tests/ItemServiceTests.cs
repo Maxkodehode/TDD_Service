@@ -18,13 +18,13 @@ public class ItemServiceTests
         // Arrange
         var service = new ItemService();
         var newItem = "Keyboard";
-        
+
         // Act
         service.Add(newItem);
         var items = service.GetAll();
-        
+
         // Assert
-        Assert.Equal(3, items.Count); 
+        Assert.Equal(3, items.Count);
         Assert.Contains("Keyboard", items);
     }
 
@@ -33,16 +33,15 @@ public class ItemServiceTests
     {
         // Arrange
         var service = new ItemService();
-        
+
         // Act
-        
         var items = service.GetAll();
         service.Delete("Mouse");
-        
-        
+
+
         // Assert
         Assert.DoesNotContain("Mouse", items);
-        Assert.Equal(2, items.Count);
+        Assert.Single(items);
     }
 
     [Fact]
@@ -51,14 +50,26 @@ public class ItemServiceTests
         // Arrange
         var service = new ItemService();
 
-    
+
         // Act
         service.Update("Laptop", "Monitor");
         var items = service.GetAll();
-    
+
         // Assert
-        Assert.Contains("Laptop", service.GetAll());
+        Assert.NotEmpty(items);
+        Assert.Contains("Monitor", service.GetAll());
         Assert.Contains("Monitor", items[0]);
         Assert.DoesNotContain("Laptop", items);
+
     }
+
+    [Fact]
+    public void TestIfUpdateThrowNotKeyExceptionWhenItemIsMissing()
+    {
+        // Arrange
+        var service = new ItemService();
+        // Act & Assert
+        Assert.Throws<KeyNotFoundException>(() => service.Update("Mouse", "Monitor"));
+    }
+
 }
