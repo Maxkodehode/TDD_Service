@@ -216,3 +216,17 @@
 /home/eikichi/RiderProjects/TDD_Service/MyApi.Tests/obj/Debug/net10.0/MyApi.Tests.pdb
 /home/eikichi/RiderProjects/TDD_Service/MyApi.Tests/obj/Debug/net10.0/MyApi.Tests.genruntimeconfig.cache
 /home/eikichi/RiderProjects/TDD_Service/MyApi.Tests/obj/Debug/net10.0/ref/MyApi.Tests.dll
+/home/eikichi/RiderProjects/TDD_Service/MyApi.Tests/bin/Debug/net10.0/Microsoft.EntityFrameworkCore.dll
+/home/eikichi/RiderProjects/TDD_Service/MyApi.Tests/bin/Debug/net10.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/home/eikichi/RiderProjects/TDD_Service/MyApi.Tests/bin/Debug/net10.0/Microsoft.EntityFrameworkCore.InMemory.dll
+/home/eikichi/RiderProjects/TDD_Service/MyApi.Tests/bin/Debug/net10.0/Microsoft.EntityFrameworkCore.Relational.dll
+/home/eikichi/RiderProjects/TDD_Service/MyApi.Tests/bin/Debug/net10.0/Microsoft.Extensions.Caching.Abstractions.dll
+/home/eikichi/RiderProjects/TDD_Service/MyApi.Tests/bin/Debug/net10.0/Microsoft.Extensions.Caching.Memory.dll
+/home/eikichi/RiderProjects/TDD_Service/MyApi.Tests/bin/Debug/net10.0/Microsoft.Extensions.DependencyInjection.dll
+/home/eikichi/RiderProjects/TDD_Service/MyApi.Tests/bin/Debug/net10.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/home/eikichi/RiderProjects/TDD_Service/MyApi.Tests/bin/Debug/net10.0/Microsoft.Extensions.Logging.dll
+/home/eikichi/RiderProjects/TDD_Service/MyApi.Tests/bin/Debug/net10.0/Microsoft.Extensions.Logging.Abstractions.dll
+/home/eikichi/RiderProjects/TDD_Service/MyApi.Tests/bin/Debug/net10.0/Microsoft.Extensions.Options.dll
+/home/eikichi/RiderProjects/TDD_Service/MyApi.Tests/bin/Debug/net10.0/Microsoft.Extensions.Primitives.dll
+/home/eikichi/RiderProjects/TDD_Service/MyApi.Tests/bin/Debug/net10.0/Npgsql.dll
+/home/eikichi/RiderProjects/TDD_Service/MyApi.Tests/bin/Debug/net10.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
