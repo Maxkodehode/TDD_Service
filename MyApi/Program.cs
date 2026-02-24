@@ -1,37 +1,27 @@
 using MyApi.Data;
 using MyApi.Services;
+using Microsoft.EntityFrameworkCore;
 
-namespace MyApi;
+var builder = WebApplication.CreateBuilder(args);
 
-internal static class Program
+// 1. REGISTER THE DATABASE (Must be BEFORE builder.Build())
+builder.Services.AddDbContext<ApiDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// 2. REGISTER THE SERVICE
+builder.Services.AddScoped<IItemService, ItemService>();
+
+builder.Services.AddControllers();
+
+var app = builder.Build();
+
+// 3. AUTO-CREATE DATABASE (Must be AFTER builder.Build())
+using (var scope = app.Services.CreateScope())
 {
-    public static void Main(string[] args)
-    {
-        var builder = WebApplication.CreateBuilder(args);
-        builder.Services.AddScoped<IItemService, ItemService>();
-        builder.Services.AddControllers();
-
-        // Add services to the container.
-        // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-        builder.Services.AddOpenApi();
-
-        var app = builder.Build();
-
-        app.MapControllers();
-
-        // Configure the HTTP request pipeline.
-        if (app.Environment.IsDevelopment())
-        {
-            app.MapOpenApi();
-        }
-
-        app.UseHttpsRedirection();
-
-        using (var scope = app.Services.CreateScope())
-        {
-            var db = scope.ServiceProvider.GetRequiredService<ApiDbContext>();
-            db.Database.EnsureCreated(); // Creates the table if it's missing
-        }
-        app.Run();
-    }
+    var db = scope.ServiceProvider.GetRequiredService<ApiDbContext>();
+    db.Database.EnsureCreated();
 }
+
+app.UseAuthorization();
+app.MapControllers();
+app.Run();
